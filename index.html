@@ -2,14 +2,23 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <script src="index.js"></script>
     <title>Title</title>
-    <h1>irgendwas</h1>
+    <h1>Rechungseingabe-Formular</h1>
 </head>
-<input>
-<h1>Rechnung eingeben</h1>
-<hr/>
+
 <form>
-<input name="Rechnungsdatum" type="date"></input>
+    <h2>Rechnungsdatum:</h2>
+    <input id="Rechnungsdatum" type="date"></input>
+    <hr/>
+    <h2>Umsatzsteuer:</h2>
+    <input id="Umsatzsteuernummer" type="number"></input>
+    <hr/>
+    <h2>Anschrift:</h2>
+    <input id="Anschrift" type="text">
+    <br>
+    <br>
+    <button> Rechnung erstellen</button>
 </form>
 </body>
 </html>
