@@ -18,6 +18,8 @@ button.addEventListener("button",() => {
     const request=require('request');
 
     request.post('',rechnungJson);
-    window.location='output.html';
-})
+    let jsonOutput=document.createElement("div");
+    jsonOutput.innerText=rechnungJson.toString();
+    document.getElementById("indexbody").appendChild(jsonOutput);
+});
 
