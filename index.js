@@ -1,25 +1,42 @@
 "use strict";
 
+class Rechnung {
+    constructor(umsatzsteuernummer, rechnungsdatum, anschrift, beschreibung, rechnungsbetrag, kundennummer) {
+        this.umsatzsteuernummer = umsatzsteuernummer;
+        this.kundennummer = kundennummer;
+        this.rechnungsdatum = rechnungsdatum;
+        this.anschrift = anschrift;
+        this.beschreibung = beschreibung;
+        this.rechnungsbetrag = rechnungsbetrag;
+    }
+}
+window.addEventListener('load', function () {
+        var button = document.getElementById("Erstellung");
+        if(button==null){
+            let jsonOutput = document.createElement("div");
+            jsonOutput.innerText = "Button nicht initialisiert";
+        }else {
+            button.addEventListener("click", () => {
 
-var rechnungsDatum={"rechnungsdatum":document.getElementById("Rechnungsdatum").value};
-var anschrift={"anschrift":document.getElementById("Anschrift").value};
-var kundenNummer={"kundennummer":document.getElementById("Kundennummer").value};
-var umsatzSteuerNummer={"umsatzsteuernummer":document.getElementById("Umsatzsteuernummer").value};
-var geldBetrag={"geldbetrag":document.getElementById("Geldbetrag").value};
-var beschreibung={"beschreibung":document.getElementById("Beschreibung").value};
+                //const request = require('request');
 
-var rechnung= new Rechnung(umsatzSteuerNummer,rechnungsDatum,anschrift,beschreibung,geldBetrag,kundenNummer);
+                var rechnungsDatum = document.getElementById("Rechnungsdatum").value;
+                var anschrift = document.getElementById("Anschrift").value;
+                var kundenNummer = document.getElementById("Kundennummer").value;
+                var umsatzSteuerNummer = document.getElementById("Umsatzsteuernummer").value;
+                var geldBetrag = document.getElementById("Geldbetrag").value;
+                var beschreibung = document.getElementById("Beschreibung").value;
 
-var rechnungJson =JSON.stringify(rechnung);
+                var rechnung = new Rechnung(umsatzSteuerNummer, rechnungsDatum, anschrift, beschreibung, geldBetrag, kundenNummer);
 
-var button=document.getElementById("Erstellung");
+                var rechnungJson = JSON.stringify(rechnung);
 
-button.addEventListener("button",() => {
-    const request=require('request');
-
-    request.post('',rechnungJson);
-    let jsonOutput=document.createElement("div");
-    jsonOutput.innerText=rechnungJson.toString();
-    document.getElementById("indexbody").appendChild(jsonOutput);
+                //request.post('', rechnungJson);
+                let jsonOutput = document.createElement("div");
+                jsonOutput.innerText = rechnungJson.toString();
+                document.getElementById("indexbody").appendChild(jsonOutput);
+            });
+        }
 });
+
 
