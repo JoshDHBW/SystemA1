@@ -1,16 +1,18 @@
 "use strict";
 
 
-var rechnungsDatum=document.getElementById("Rechnungsdatum");
-var anschrift=document.getElementById("Anschrift");
-var kundenNummer=document.getElementById("Kundennummer");
-var umsatzSteuerNummer=document.getElementById("Umsatzsteuernummer");
-var geldBetrag=document.getElementById("Geldbetrag");
-var beschreibung=document.getElementById("Beschreibung");
+var rechnungsDatum={"rechnungsdatum":document.getElementById("Rechnungsdatum").value};
+var anschrift={"anschrift":document.getElementById("Anschrift").value};
+var kundenNummer={"kundennummer":document.getElementById("Kundennummer").value};
+var umsatzSteuerNummer={"umsatzsteuernummer":document.getElementById("Umsatzsteuernummer").value};
+var geldBetrag={"geldbetrag":document.getElementById("Geldbetrag").value};
+var beschreibung={"beschreibung":document.getElementById("Beschreibung").value};
 
 var rechnung= new Rechnung(umsatzSteuerNummer,rechnungsDatum,anschrift,beschreibung,geldBetrag,kundenNummer);
 
+JSON rechnungJson =JSON.stringify(rechnung);
+
 const request=require('request');
 
-request.post('',rechnung);
+request.post('',rechnungJson);
 
