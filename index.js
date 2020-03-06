@@ -10,7 +10,7 @@ var beschreibung={"beschreibung":document.getElementById("Beschreibung").value};
 
 var rechnung= new Rechnung(umsatzSteuerNummer,rechnungsDatum,anschrift,beschreibung,geldBetrag,kundenNummer);
 
-JSON rechnungJson =JSON.stringify(rechnung);
+var rechnungJson =JSON.stringify(rechnung);
 
 const request=require('request');
 
