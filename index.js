@@ -12,7 +12,12 @@ var rechnung= new Rechnung(umsatzSteuerNummer,rechnungsDatum,anschrift,beschreib
 
 var rechnungJson =JSON.stringify(rechnung);
 
-const request=require('request');
+var button=document.getElementById("Erstellung");
 
-request.post('',rechnungJson);
+button.addEventListener("button",() => {
+    const request=require('request');
+
+    request.post('',rechnungJson);
+    window.location='output.html';
+})
 
